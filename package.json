@@ -1,0 +1,27 @@
+{
+  "name": "sequelizeproject",
+  "version": "1.0.0",
+  "description": "Sequelize JS project",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "nodemon server/server.js localhost 3000 && webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sequelize"
+  ],
+  "author": "Aldrich",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "sequelize": "^4.37.7"
+  }
+}
