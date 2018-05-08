@@ -4,8 +4,11 @@
   "description": "Sequelize JS project",
   "main": "server/server.js",
   "scripts": {
-    "start": "nodemon server/server.js localhost 3000 && webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-server": "nodemon server/server.js localhost 3000",
+    "start-client": "PORT=8080 react-scripts start",
+    "start": "npm-run-all -p -r start-server start-client",
+    "test": "react-scripts test --env=jsdom",
+    "build": "react-scripts build"
   },
   "keywords": [
     "sequelize"
@@ -13,16 +16,13 @@
   "author": "Aldrich",
   "license": "ISC",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "mysql2": "^1.5.3",
     "pg": "^7.4.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-scripts": "^1.1.4",
     "sequelize": "^4.37.7"
   }
 }

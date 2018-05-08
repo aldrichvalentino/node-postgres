@@ -17,12 +17,13 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
 
-  server:
+  app:
     build: .
     volumes:
       - .:/opt/app
     ports:
       - 3000:3000
+      - 8080:8080
     depends_on:
       - db
     links:

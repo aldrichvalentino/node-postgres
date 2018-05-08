@@ -1,10 +1,7 @@
 FROM node:carbon
 
 # install global
-RUN npm install -g nodemon
-RUN npm install -g mysql2
-RUN npm install -g webpack@^4.0.0
-# RUN npm install -D webpack-cli
+RUN npm install -g npm-run-all nodemon
 
 # create app directory
 WORKDIR /opt/app
