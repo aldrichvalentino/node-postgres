@@ -2,12 +2,12 @@
 For development
 1. Docker and docker-compose
 
-# Modules
+# Built with
 Project dependencies:
-1. Postgres
-2. SequelizeJS
-3. ExpressJS
-4. ReactJS
+1. [Postgres](https://www.postgresql.org/) - Database
+2. [SequelizeJS](http://docs.sequelizejs.com/) - ORM
+3. [ExpressJS](https://expressjs.com/) - Web Framework
+4. [ReactJS](https://reactjs.org/) - Frontend Framework
 
 # Starting the Project
 1. Build the image
@@ -24,6 +24,9 @@ To be defined
 
 # Production
 To be defined
+
+# License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 # Author
 [Aldrich](https://github.com/aldrichvalentino)
