@@ -44,10 +44,10 @@ class Form extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginBottom: 20 }}>
         <h1>Register</h1>
         <form onSubmit={this.handleSubmit.bind(this)} >
-          <div>
+          <div style={{ marginBottom: 10 }}>
             <input 
               required
               type="text" 
@@ -55,7 +55,7 @@ class Form extends Component {
               placeholder="username" 
               onChange={this.handleNameChange.bind(this)} />
           </div>
-          <div>
+          <div style={{ marginBottom: 10 }}>
             <input 
               required
               type="date" 
