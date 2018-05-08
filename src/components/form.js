@@ -33,7 +33,7 @@ class Form extends Component {
       };
       axios.post('http://localhost:3000/users', data)
       .then((response) => {
-        console.log(response.data);
+        // Update state with the new registered user
         this.props.update(response.data.username);
       })
       .catch((error) => {
