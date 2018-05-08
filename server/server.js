@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 
 // get home
 app.get('/', (req, res) => {
-    res.send('test world!');
+    res.send('API main page');
     sequelize.sync();
 });
 
@@ -40,14 +40,25 @@ app.get('/', (req, res) => {
 app.get('/users', (req, res) => {
     User.findAll()
         .then(users => {
+            res.header('Access-Control-Allow-Origin', '*');
             res.send(users);
         });
+});
+
+// options
+app.options('/*', (req, res) => {
+    res.header('Content-Type', 'application/json');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTION');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.send();
 });
 
 // get user by id
 app.get('/users/:id', (req, res) => {
     User.findById(req.params.id)
         .then(users => {
+            res.header('Access-Control-Allow-Origin', '*');
             res.send(users);
         });
 });
@@ -62,6 +73,7 @@ app.post('/users' ,(req, res) => {
         username: username,
         birthday: new Date(birthYear, birthMonth, birthDate)
     }).then(newUser => {
+        res.header('Access-Control-Allow-Origin', '*');
         res.send(newUser);
     });
 });
