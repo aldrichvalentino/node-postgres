@@ -18,5 +18,5 @@ before_install:
 script:
   - docker-compose build
   - docker-compose up -d
-  - docker-compose exec app sh npm test
+  - docker-compose exec app npm test
   - docker-compose stop
