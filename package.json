@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start-server": "nodemon server/server.js localhost 3000",
-    "start-client": "PORT=8080 react-scripts start",
+    "start-client": "PORT=8080 node_modules/.bin/react-scripts start",
     "start": "npm-run-all -p -r start-server start-client",
     "test": "react-scripts test --env=jsdom",
     "build": "react-scripts build"
