@@ -1,16 +1,21 @@
 version: "2.0"
 
 services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 1234:8080
+
   db:
-    image: mysql:5
+    image: postgres
     restart: always
     volumes:
       - db:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=seqdb
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin
+      - POSTGRES_DB=seqdb
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
 
   server:
     build: .

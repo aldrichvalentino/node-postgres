@@ -3,10 +3,10 @@ const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 
 // database
-const sequelize = new Sequelize('seqdb', 'root', 'admin', {
+const sequelize = new Sequelize('seqdb', 'admin', 'admin', {
     host: 'db',
-    dialect: 'mysql',
-    port: 3306,
+    dialect: 'postgres',
+    port: 5432,
 
     pool: {
         max: 5,
@@ -27,10 +27,13 @@ const User = sequelize.define('user', {
 // server config
 const port = 3000;
 var app = Express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // get home
 app.get('/', (req, res) => {
     res.send('test world!');
+    sequelize.sync();
 });
 
 // get user resource
@@ -50,7 +53,7 @@ app.get('/users/:id', (req, res) => {
 });
 
 // post to user
-app.post('/users', bodyParser.json() ,(req, res) => {
+app.post('/users' ,(req, res) => {
     var username = req.body.username;
     var birthYear = req.body.birthYear;
     var birthMonth = req.body.birthMonth;
