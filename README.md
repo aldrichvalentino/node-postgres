@@ -1,9 +1,19 @@
+<h1 align="center">
+  <br>
+  Node PERN stack with Docker
+  <br>
+  <br>
+</h1>
+
+<p align="center">
+  <a href="https://travis-ci.org/aldrichvalentino/node-postgres"><img src="https://api.travis-ci.org/aldrichvalentino/node-postgres.svg?branch=master" alt="travis"></a>
+</p>
+---
+
 # Prerequisites
-For development
-1. Docker and docker-compose
+Docker and docker-compose for development.
 
 # Built with
-Project dependencies:
 1. [Postgres](https://www.postgresql.org/) - Database
 2. [SequelizeJS](http://docs.sequelizejs.com/) - ORM
 3. [ExpressJS](https://expressjs.com/) - Web Framework
@@ -20,7 +30,7 @@ $ docker-compose up
 ```
 
 # Testing
-To be defined
+Use Jest for testing. Create test files with `*.test.js` extensions.
 
 # Production
 To be defined
