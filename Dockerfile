@@ -1,8 +1,5 @@
 FROM node:carbon
 
-# install global
-RUN npm install -g npm-run-all nodemon
-
 # create app directory
 WORKDIR /opt/app
 
