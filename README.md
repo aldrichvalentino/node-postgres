@@ -8,7 +8,6 @@
 <p align="center">
   <a href="https://travis-ci.org/aldrichvalentino/node-postgres"><img src="https://api.travis-ci.org/aldrichvalentino/node-postgres.svg?branch=master" alt="travis"></a>
 </p>
----
 
 # Prerequisites
 Docker and docker-compose for development.
