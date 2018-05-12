@@ -7,7 +7,7 @@
     "start-server": "nodemon server/server.js localhost 3000",
     "start-client": "PORT=8080 node_modules/.bin/react-scripts start",
     "start": "npm-run-all -p -r start-server start-client",
-    "test": "jest --env=jsdom --watchAll",
+    "test": "jest --env=jsdom",
     "build": "react-scripts build"
   },
   "keywords": [
