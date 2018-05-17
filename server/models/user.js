@@ -6,5 +6,6 @@ module.exports = {
     User : database.define('user', {
         username: config.dataType.string,
         birthday: config.dataType.date
-    })
+    }),
+    sync: () => database.sync()
 };
