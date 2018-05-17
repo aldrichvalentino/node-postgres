@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import Form from './containers/form';
 import Profile from './components/profile';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { User } from './reducer/userReducer';
-import { addUser, editUser, getUser, receiveUser } from './action/userAction';
+import thunk from 'redux-thunk';
 
-const store = createStore(User);
+const middleware = applyMiddleware(thunk);
+const store = createStore(User, middleware);
 
 class App extends Component {
   constructor(props) {

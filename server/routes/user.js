@@ -25,9 +25,10 @@ module.exports = function(app) {
     // post to user
     app.post('/users' ,(req, res) => {
         var username = req.body.username;
-        var birthYear = req.body.birthYear;
-        var birthMonth = req.body.birthMonth;
-        var birthDate = req.body.birthDate;
+        var birthday = new Date(req.body.birthday);
+        var birthYear = birthday.getFullYear();
+        var birthMonth = birthday.getMonth();
+        var birthDate = birthday.getDate();
         model.sync().then(() => 
             User.create({
                 username: username,
