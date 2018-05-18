@@ -11,9 +11,6 @@ var app = Express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Call the custom API
-Users(app);
-
 // default route
 app.get('/', (req, res) => {
     res.send('API main page');
@@ -27,6 +24,9 @@ app.options('/*', (req, res) => {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.send();
 });
+
+// Call the custom API
+app.use('/users', Users);
 
 // Listen to port
 console.log('Listening on port '+ port);
