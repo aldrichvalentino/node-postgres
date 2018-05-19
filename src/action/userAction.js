@@ -15,15 +15,16 @@ export const receiveUser = (payload) => ({
   payload
 })
 
-export const addUser = (username, birthday) => ({
+export const addUser = (name, email, password) => ({
   type: type.CREATE_USER,
-  username,
-  birthday
+  name,
+  email,
+  password
 })
 
-export const editUser = (index, username, birthday) => ({
+export const editUser = (index, name, password) => ({
   type: type.EDIT_USER,
   index,
-  username,
-  birthday
+  name,
+  password
 })

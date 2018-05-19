@@ -9,12 +9,15 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addUser: (username, birthday) => { 
-    dispatch(addUser(username, birthday));
+  addUser: (name, email, password) => { 
+    dispatch(addUser(name, email, password));
     axios.post('http://localhost:3000/users', {
-      username: username,
-      birthday: birthday
-    }).then((res) => console.log(res.data))
+      name: name,
+      email: email,
+      password: password
+    }, {
+      withCredentials: true
+    }).then()
       .catch((err) => console.log(err));
   },
 })

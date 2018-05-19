@@ -1,30 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 
-class Form extends Component {
+class Login extends Component {
   render() {
-    let username, email, password;
-    if(this.props.currentUser !== ''){
-      return <Redirect to={{pathname: '/'}} />
-    }
-
+    let email, password;
     return (
       <div style={{ marginBottom: 20 }}>
-        <h1>Register</h1>
+        <h1>Login</h1>
         <form style={{ marginBottom: 20 }} onSubmit={(e) => {
           e.preventDefault();
-          this.props.addUser(username.value, email.value, password.value);
+          this.props.addUser(email.value, password.value);
         }} >
-          <div style={{ marginBottom: 10 }}>
-            <label style={{display: 'block'}}>Name</label>
-            <input 
-              required
-              type="text" 
-              name="name" 
-              placeholder="name"
-              ref={(node) => username = node} />
-          </div>
           <div style={{ marginBottom: 10 }}>
             <label style={{display: 'block'}}>Email</label>
             <input 
@@ -44,13 +30,13 @@ class Form extends Component {
               ref={(node) => password = node} />
           </div>
           <div>
-            <input type="submit" value="register"/>
+            <input type="submit" value="Login"/>
           </div>
         </form>
-        <Link to='/login'>Login here!</Link><br/>
+        <Link to='/register'>Register here!</Link>
       </div>
     );
   }
 }
 
-export default Form;
+export default Login;

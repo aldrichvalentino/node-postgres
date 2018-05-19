@@ -6,8 +6,8 @@ function currentUser(state = '', action) {
     case type.GET_USER: {
       return state;
     }
-    case type.RECEIVE_USER: {
-      return action.payload;
+    case type.CREATE_USER: {
+      return action.name;
     }
     default: return state;
   }
@@ -16,21 +16,29 @@ function currentUser(state = '', action) {
 function users(state = [], action) {
   let users = state;
   switch(action.type) {
-    case type.CREATE_USER: {
-      return [...state, {
-        username: action.username,
-        birthday: action.birthday
-      }];
-    }
+    // case type.CREATE_USER: {
+    //   return [...state, {
+    //     name: action.name,
+    //     email: action.email
+    //   }];
+    // }
     case type.EDIT_USER: {
       return users.map((user, index) => {
         if(index === action.index) {
           return {
-            username: action.username,
-            birthday: action.birthday
+            name: action.name,
+            password: action.password
           }
         }
         return user;
+      });
+    }
+    case type.RECEIVE_USER: {
+      return action.payload.map((user, index) => {
+        return {
+          name: user.name,
+          email: user.email
+        }
       });
     }
     default: return state;
