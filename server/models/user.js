@@ -4,8 +4,11 @@ const database = config.database;
 
 module.exports = {
     User : database.define('user', {
-        username: config.dataType.string,
-        birthday: config.dataType.date
+        name: config.dataType.string,
+        email: config.dataType.string,
+        password: config.dataType.string
     }),
     sync: () => database.sync()
 };
+
+database.sync()
