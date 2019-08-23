@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   render() {
@@ -7,33 +7,38 @@ class Login extends Component {
     return (
       <div style={{ marginBottom: 20 }}>
         <h1>Login</h1>
-        <form style={{ marginBottom: 20 }} onSubmit={(e) => {
-          e.preventDefault();
-          this.props.addUser(email.value, password.value);
-        }} >
+        <form
+          style={{ marginBottom: 20 }}
+          onSubmit={e => {
+            e.preventDefault();
+            this.props.addUser(email.value, password.value);
+          }}
+        >
           <div style={{ marginBottom: 10 }}>
-            <label style={{display: 'block'}}>Email</label>
-            <input 
+            <label style={{ display: "block" }}>Email</label>
+            <input
               required
-              type="text" 
-              name="email" 
+              type="text"
+              name="email"
               placeholder="email"
-              ref={(node) => email = node} />
+              ref={node => (email = node)}
+            />
           </div>
           <div style={{ marginBottom: 10 }}>
-            <label style={{display: 'block'}}>Password</label>
-            <input 
+            <label style={{ display: "block" }}>Password</label>
+            <input
               required
-              type="password" 
+              type="password"
               name="password"
               placeholder="your secret password"
-              ref={(node) => password = node} />
+              ref={node => (password = node)}
+            />
           </div>
           <div>
-            <input type="submit" value="Login"/>
+            <input type="submit" value="Login" />
           </div>
         </form>
-        <Link to='/register'>Register here!</Link>
+        <Link to="/register">Register here!</Link>
       </div>
     );
   }

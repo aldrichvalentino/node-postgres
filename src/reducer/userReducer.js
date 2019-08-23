@@ -1,21 +1,22 @@
-import { type } from '../action/userAction';
-import { combineReducers } from 'redux';
+import { type } from "../action/userAction";
+import { combineReducers } from "redux";
 
-function currentUser(state = '', action) {
-  switch(action.type) {
+function currentUser(state = "", action) {
+  switch (action.type) {
     case type.GET_USER: {
       return state;
     }
     case type.CREATE_USER: {
       return action.name;
     }
-    default: return state;
+    default:
+      return state;
   }
 }
 
 function users(state = [], action) {
   let users = state;
-  switch(action.type) {
+  switch (action.type) {
     // case type.CREATE_USER: {
     //   return [...state, {
     //     name: action.name,
@@ -24,11 +25,11 @@ function users(state = [], action) {
     // }
     case type.EDIT_USER: {
       return users.map((user, index) => {
-        if(index === action.index) {
+        if (index === action.index) {
           return {
             name: action.name,
             password: action.password
-          }
+          };
         }
         return user;
       });
@@ -38,10 +39,11 @@ function users(state = [], action) {
         return {
           name: user.name,
           email: user.email
-        }
+        };
       });
     }
-    default: return state;
+    default:
+      return state;
   }
 }
 
