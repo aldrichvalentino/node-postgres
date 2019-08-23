@@ -1,12 +1,12 @@
-FROM node:10-alpine as BUILD
-RUN apk update && apk add --no-cache python make g++
-COPY . /opt/app
-WORKDIR /opt/app
-RUN npm ci
+FROM mhart/alpine-node:10
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn
 
-
-FROM node:10-alpine
+# Only copy over the node pieces we need from the above image
+FROM mhart/alpine-node:slim-10
+WORKDIR /app
+COPY --from=0 /app .
+COPY . .
 EXPOSE 3000
-WORKDIR /opt/app
-COPY --from=BUILD /opt/app .
-CMD ["npm", "start"]
+CMD ["node", "scripts/start.js"]
