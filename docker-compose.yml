@@ -8,10 +8,10 @@ services:
       - 1234:8080
 
   db:
-    image: postgres
+    image: postgres:10
     restart: always
     volumes:
-      - db:/var/lib/mysql
+      - db:/var/lib/data
     environment:
       - POSTGRES_DB=seqdb
       - POSTGRES_USER=admin
@@ -33,4 +33,3 @@ services:
 volumes:
   db:
     driver: local
-

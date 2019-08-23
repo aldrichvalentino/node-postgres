@@ -31,11 +31,15 @@ $ docker-compose up
 # Testing
 Use Jest for testing. Create test files with `*.test.js` extensions.
 
-# Production
-To be defined
-
 # License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 # Author
 [Aldrich](https://github.com/aldrichvalentino)
+
+# TODO
+- use another container for React SSR, it will be different from the backend
+- add linter
+- build a simple forum app -> user, register, login, post, comment
+- make an infinite scrolling (lazy loading) with SSR
+- profile page (CRUD)

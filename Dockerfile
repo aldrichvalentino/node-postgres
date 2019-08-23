@@ -1,18 +1,12 @@
-FROM node:carbon
-
-# create app directory
+FROM node:10-alpine as BUILD
+RUN apk update && apk add --no-cache python make g++
+COPY . /opt/app
 WORKDIR /opt/app
+RUN npm ci
 
-# install dependencies
-COPY package*.json ./
 
-RUN npm install
-
-# Bundle app source
-COPY . .
-
-# expose
+FROM node:10-alpine
 EXPOSE 3000
-
-# run command when up
+WORKDIR /opt/app
+COPY --from=BUILD /opt/app .
 CMD ["npm", "start"]
