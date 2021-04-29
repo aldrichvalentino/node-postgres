@@ -1,3 +1,5 @@
+This project is looking for maintainers and is in development for the next version. Read [here](https://github.com/aldrichvalentino/node-postgres/issues/11).
+
 <h1 align="center">
   <br>
   Node PERN stack with Docker
@@ -46,9 +48,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 [Aldrich](https://github.com/aldrichvalentino)
 
-# TODO
-
-- use another container for React SSR (no docker), it will be different from the backend (use docker)
-- build a simple forum app -> user, register, login, post, comment
-- make an infinite scrolling (lazy loading) with SSR
-- profile page (CRUD), with redux
