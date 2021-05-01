@@ -6,7 +6,7 @@ services:
   - docker
 
 env:
-  - DOCKER_COMPOSE_VERSION=2.0
+  - DOCKER_COMPOSE_VERSION=1.29.1
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -15,7 +15,9 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - docker-compose --version
 
-# TODO: write test script
+# Currently is only set to run backend test
 script:
-  - docker-compose up -d
-  - docker-compose stop
+  - docker-compose -f docker-compose.prod.yml build
+  - docker-compose -f docker-compose.prod.yml up
+  - docker-compose -f docker-compose.prod.yml exec server npm test
+  - docker-compose -f docker-compose.prod.yml stop
