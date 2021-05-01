@@ -6,7 +6,7 @@ services:
   - docker
 
 env:
-  - DOCKER_COMPOSE_VERSION=1.14.0
+  - DOCKER_COMPOSE_VERSION=2.0
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -15,8 +15,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - docker-compose --version
 
+# TODO: write test script
 script:
-  - docker-compose build
   - docker-compose up -d
-  - docker-compose exec app npm test
   - docker-compose stop
