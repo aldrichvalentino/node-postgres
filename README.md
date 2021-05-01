@@ -77,3 +77,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 # Author
 
 [Aldrich](https://github.com/aldrichvalentino)
+
+# TODO
+- update README
+- add linter
+- fix tests and travis CI
