@@ -1,5 +1,6 @@
 version: "2.0"
 
+# TODO: create production docker-compose
 services:
   pgadmin:
     image: dpage/pgadmin4:5
