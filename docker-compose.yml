@@ -1,34 +1,28 @@
 version: "2.0"
 
 services:
-  adminer:
-    image: adminer
+  pgadmin:
+    image: dpage/pgadmin4:5
     restart: always
     ports:
-      - 1234:8080
+      - 8000:80
+    links:
+      - db:db
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=john@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
 
   db:
-    image: postgres:10
+    image: postgres:13.2
     restart: always
     volumes:
       - db:/var/lib/data
+    ports:
+      - 5432:5432
     environment:
-      - POSTGRES_DB=seqdb
+      - POSTGRES_DB=dev
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
-
-  app:
-    build: .
-    volumes:
-      - .:/opt/app
-      - /opt/app/node_modules
-    ports:
-      - 3000:3000
-      - 8080:8080
-    depends_on:
-      - db
-    links:
-      - db:db
 
 volumes:
   db:
