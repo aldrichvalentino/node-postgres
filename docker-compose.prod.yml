@@ -17,12 +17,30 @@ services:
     restart: always
     volumes:
       - db:/var/lib/data
-    ports:
-      - 5432:5432
     environment:
       - POSTGRES_DB=dev
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
+
+  nginx:
+    image: nginx:stable
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./client/dist:/var/www
+      - ./client/nginx/conf.d/:/etc/nginx/conf.d/
+
+  server:
+    image: app_server:latest
+    build:
+      context: ./server
+    links:
+      - db:db
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
 
 volumes:
   db:

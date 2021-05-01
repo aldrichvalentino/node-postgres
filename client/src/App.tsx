@@ -10,16 +10,15 @@ const App = () => {
   const [products, setProducts] = React.useState([]);
 
   React.useEffect(() => {
-    // TODO: move api to .env
     const fetchUsers = async () => {
-      const res = await fetch('http://localhost:3000/users')
+      const res = await fetch(`${process.env.API_URL}/users`)
         .then(res => res.json());
 
       setUsers(res);
     }
 
     const fetchProducts = async () => {
-      const res = await fetch('http://localhost:3000/')
+      const res = await fetch(`${process.env.API_URL}/`)
         .then(res => res.json());
 
       setProducts(res);

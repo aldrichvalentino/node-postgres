@@ -15,10 +15,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(cors({
-  // TODO: move to .env
-  origin: 'http://localhost:8080',
-}));
+// cors handling
+const allowlist = process.env.CORS_WHITELIST;
+const corsOptionsDelegate = function (req, res) {
+  let corsOptions;
+  if (allowlist.indexOf(req.header('Origin')) !== -1) {
+    // reflect (enable) the requested origin in the CORS response
+    corsOptions = { origin: true }
+  } else {
+    // disable CORS for this request
+    corsOptions = { origin: false }
+  }
+  res(null, corsOptions)
+}
+
+// apply cors middleware
+app.use(cors(corsOptionsDelegate));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

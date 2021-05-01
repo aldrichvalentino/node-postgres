@@ -18,22 +18,52 @@ Docker and docker-compose for development.
 # Built with
 
 1. [Postgres](https://www.postgresql.org/) - Database
-2. [SequelizeJS](http://docs.sequelizejs.com/) - ORM
 3. [ExpressJS](https://expressjs.com/) - Web Framework
 4. [ReactJS](https://reactjs.org/) - Frontend Framework
 
-# Starting the Project
+# Development
 
-1. Build the image
-
-```sh
-$ docker-compose build
-```
-
-2. Start the image
+1. Start database
 
 ```sh
 $ docker-compose up
+```
+
+2. Run server
+
+```sh
+# remember to setup .env
+$ cd server && npm i && npm run start:dev
+# check localhost:3000
+```
+
+3. Run client
+
+```sh
+# remember to setup .env
+$ cd client && npm i && npm start
+# check localhost:8080
+```
+
+# Production
+
+1. Build image
+
+Build the image using `docker-compose`. Note: update the `.env` to use database host as `db` (the same as the database container name).
+```sh
+$ docker-compose -f docker-compose.prod.yml build
+```
+
+2. Build frontend
+
+```sh
+$ cd client && npm run build
+```
+
+3. Run
+```sh
+$ docker-compose -f docker-compose.prod.yml up
+# check localhost:80
 ```
 
 # Testing
@@ -47,4 +77,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 # Author
 
 [Aldrich](https://github.com/aldrichvalentino)
-
