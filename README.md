@@ -1,19 +1,6 @@
-This project is looking for maintainers and is in development for the next version. Read [here](https://github.com/aldrichvalentino/node-postgres/issues/11).
-
-<h1 align="center">
-  <br>
-  Node PERN stack with Docker
-  <br>
-  <br>
-</h1>
-
-<p align="center">
-  <a href="https://travis-ci.org/aldrichvalentino/node-postgres"><img src="https://api.travis-ci.org/aldrichvalentino/node-postgres.svg?branch=master" alt="travis"></a>
-</p>
-
 # Prerequisites
 
-Docker and docker-compose for development.
+Node, Docker and docker-compose for development.
 
 # Built with
 
