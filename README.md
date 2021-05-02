@@ -1,8 +1,8 @@
 # Prerequisites
 
-Node, Docker and docker-compose for development.
+Node, Docker and docker-compose for development. This is a template for prototyping or building small to medium sized projects.
 
-# Built with
+# Tech Stack
 
 1. [Postgres](https://www.postgresql.org/) - Database
 3. [ExpressJS](https://expressjs.com/) - Web Framework
