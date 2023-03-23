@@ -1,16 +1,20 @@
-import express from 'express'
-// import * as awilix from 'awilix'
+import express from 'express';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
-// eslint-disable-next-line
-require('dotenv').config()
+import userRoutes from '@/routes/user';
 
-const app = express()
+const app = express();
 
-app.get('/', (req, res, next) => {
-  res.status(200)
-  res.json({
-    message: 'OK'
-  })
-})
+app.use(bodyParser.json());
+app.use(morgan('common'));
 
-export default app
+app.get('/', (_req, res) => {
+	res.status(200);
+	res.json({
+		message: 'OK',
+	});
+});
+app.use('/users', userRoutes);
+
+export default app;
